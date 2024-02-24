@@ -1,0 +1,72 @@
+.logo {
+ width: 38px;
+ height: 38px;
+ margin: auto 0 auto 70px;
+}
+
+.header {
+  width: 100%;
+  max-width: 1280px;
+  height: 74px;
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background: #073042;
+}
+
+.header__navigation {
+  display: flex;
+  flex-direction: row;
+  margin: auto 0 auto 45px;
+  text-align: center;
+}
+
+.header__navigation a {
+  text-decoration: none;
+  color: #FFF;
+  margin-right: 16px;
+  font-family: Inter;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: 0em;
+}
+
+.header__navigation a:hover {
+  font-weight: 500;
+}
+
+.header__user-actions {
+  margin: auto 70px auto auto;
+}
+
+.register-button {
+  text-decoration: none;
+  color: #FFF;
+  margin-right: 30px;
+  font-family: Inter;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  letter-spacing: 0px;
+  text-align: right;
+}
+
+.login-button {
+  background: #3DDC84;
+  width: 76px;
+  height: 32px;
+  border-radius: 3px;
+  font-family: Inter;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+  letter-spacing: 0px;
+  text-align: center;
+  color: #000;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  outline: none;
+}

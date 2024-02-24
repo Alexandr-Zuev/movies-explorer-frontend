@@ -1,0 +1,35 @@
+.page {
+    width: 100%;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+}
+
+.section__title {
+    width: 89.0625%;
+    margin: 100px auto 0 auto;
+    color: white;
+    font-family: Inter;
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 27px;
+    letter-spacing: -0.04em;
+    text-align: left;
+}
+
+.section__line {
+    height: 1px;
+    width: 89.0625%;
+    background-color: #DADADA;
+    box-sizing: border-box;
+    margin-top: 23px;
+}
+
+.section__between-line {
+    height: 1px;
+    width: 89.0625%;
+    background-color: #424242;
+    box-sizing: border-box;
+}
