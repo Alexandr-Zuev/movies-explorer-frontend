@@ -1,0 +1,41 @@
+.navtab {
+  display: flex;
+  flex-direction: row;
+  margin: auto 70px auto auto;
+}
+
+.navtab__register-button {
+  text-decoration: none;
+  color: #FFF;
+  margin-right: 30px;
+  font-family: Inter;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  letter-spacing: 0px;
+  text-align: right;
+  align-self: center;
+}
+
+.navtab__login-button {
+  background: #3DDC84;
+  width: 76px;
+  height: 32px;
+  border-radius: 3px;
+  font-family: Inter;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+  letter-spacing: 0px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #000;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  outline: none;
+  align-self: center;
+  text-decoration: none;
+}

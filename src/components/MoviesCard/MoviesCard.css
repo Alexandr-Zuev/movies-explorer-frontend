@@ -1,0 +1,80 @@
+.movie-card {
+    max-width: 339px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.movie-card__poster {
+    max-width: 100%;
+    height: 100%;
+    max-height: 190px;
+    object-fit: cover;
+}
+
+.movie-card__info {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 14px;
+}
+
+.movie-card__title {
+    font-family: Inter;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 16px;
+    letter-spacing: 0px;
+    text-align: left;
+    color: #fff;
+    align-self: center;
+    margin: 0;
+}
+
+.movie-card__like-button {
+    background-image: url('../../images/like-icon.svg');
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    border: none;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    overflow: visible;
+    align-self: center;
+    margin: 0;
+}
+
+.movie-card__like-button:hover {
+    opacity: 0.5;
+}
+
+.movie-card__like-button_active {
+    background-image: url('../../images/like-icon-active.svg');
+}
+
+.movie-card__like-button:hover {
+    opacity: 0.5;
+}
+
+.movie-card__line {
+    height: 1px;
+    width: 100%;
+    background-color: #424242;
+    box-sizing: border-box;
+    margin-top: 25px;
+}
+
+.movie-card__duration {
+    font-family: Inter;
+    font-size: 11px;
+    font-weight: 400;
+    line-height: 13px;
+    letter-spacing: 0px;
+    text-align: left;
+    color: #8B8B8B;
+    margin: 6px auto 0 0;
+}

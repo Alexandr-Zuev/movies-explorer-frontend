@@ -1,7 +1,7 @@
 import React from 'react'
 import logo from '../../images/promo-logo.svg';
 
-function Promo() {
+const Promo = () => {
 
   return (
     <section className="promo">

@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Techs() {
+const Techs = () => {
     return (
     <section className="techs">
       <h3 className="section__title">Технологии</h3>

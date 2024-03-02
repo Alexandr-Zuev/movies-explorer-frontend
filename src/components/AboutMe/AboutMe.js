@@ -1,7 +1,6 @@
 import React from 'react';
-import linkImg from '../../images/link-img.svg';
 
-function AboutMe() {
+const AboutMe = () => {
     return (
         <section className="about-me">
             <h3 className="section__title">Студент</h3>
@@ -19,12 +18,6 @@ function AboutMe() {
                 </div>
                 <img className="about-me__photo" src="https://avatars.githubusercontent.com/u/127013890?v=4" alt="Фото" />
             </div>
-            <h3 className="about-me__portfolio-title" >Портфолио</h3>
-            <p className="about-me__portfolio-link">Статичный сайт<a className='about-me__portfolio-link-img' href="https://github.com/Alexandr-Zuev/russian-travel"><img src={linkImg} alt="Изображение ссылки" /></a></p>
-            <div className="section__between-line"></div>
-            <p className="about-me__portfolio-link">Адаптивный сайт<a className='about-me__portfolio-link-img' href="https://github.com/Alexandr-Zuev/mesto"><img src={linkImg} alt="Изображение ссылки" /></a></p>
-            <div className="section__between-line"></div>
-            <p className="about-me__portfolio-link">Одностраничное приложение<a className='about-me__portfolio-link-img' href="https://github.com/Alexandr-Zuev/mesto-react"><img  src={linkImg} alt="Изображение ссылки" /></a></p>
         </section>
     );
 };

@@ -2,24 +2,14 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../images/logo.svg';
 
-const Register = () => {
+const Login = () => {
 
-  const [nameError, setNameError] = useState('');
   const [emailError, setEmailError] = useState('');
   const [passwordError, setPasswordError] = useState('');
 
   const handleSubmit = (event) => {
     event.preventDefault();
     // логика валидации здесь
-  };
-
-  const handleNameChange = (event) => {
-    const value = event.target.value;
-    if (value.length < 2) {
-      setNameError('Имя должно содержать не менее 2 символов');
-    } else {
-      setNameError('');
-    }
   };
 
   const handleEmailChange = (event) => {
@@ -45,18 +35,7 @@ const Register = () => {
     <div className="register">
       <form className="register__form" onSubmit={handleSubmit}>
         <img className="register__logo" src={logo} alt="Логотип" />
-        <h2 className="register__title">Добро пожаловать!</h2>
-        <div className="register__input-container">
-          <label className="register__input-label" htmlFor="username">Имя</label>
-          <input
-            className="register__input"
-            name="username"
-            type="text"
-            required
-            onChange={handleNameChange}
-          />
-          <span className="register__error-message">{nameError}</span>
-        </div>
+        <h2 className="register__title">Рады видеть!</h2>
 
         <div className="register__input-container">
           <label className="register__input-label" htmlFor="email">Email</label>
@@ -81,11 +60,11 @@ const Register = () => {
           />
           <span className="register__error-message">{passwordError}</span>
         </div>
-        <button type="submit" className="register__button">Зарегистрироваться</button>
-        <p className="register__span">Уже зарегистрированы? <Link to="/signin" className="login__link">Войти</Link></p>
+        <button type="submit" className="register__button">Войти</button>
+        <p className="register__span">Ещё не зарегистрированы? <Link to="/signup" className="login__link">Регистрация</Link></p>
       </form>
     </div>
   );
 }
 
-export default Register;
+export default Login;

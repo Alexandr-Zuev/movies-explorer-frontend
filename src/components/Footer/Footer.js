@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Footer() {
+const Footer = () => {
     return (
         <footer className="footer">
             <p className="footer__title">Учебный проект Яндекс.Практикум х BeatFilm.</p>

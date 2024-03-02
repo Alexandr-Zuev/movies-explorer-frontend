@@ -1,6 +1,6 @@
 import React from 'react'
 
-function AboutProject() {
+const AboutProject = () => {
   return (
     <section className="about-project">
       <h3 className="section__title">О проекте</h3>

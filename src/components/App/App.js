@@ -1,25 +1,37 @@
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
 import Header from '../Header/Header';
-import Promo from '../Promo/Promo';
-import AboutProject from '../AboutProject/AboutProject';
-import Techs from '../Techs/Techs';
-import AboutMe from '../AboutMe/AboutMe';
+import Main from '../Main/Main';
+import Movies from '../Movies/Movies';
 import Footer from '../Footer/Footer';
+import Login from '../Login/Login';
+import Register from '../Register/Register';
+import NotFoundPage from '../NotFoundPage/NotFoundPage';
 
 
-
-function App() {
-
+const App = () => {
   return (
- 
       <div className="page">
-        <Header/>
-        <Promo/>
-        <AboutProject/>
-        <Techs/>
-        <AboutMe/>
-        <Footer/>
+        <Routes>
+          <Route path="/" element={
+            <>
+              <Header />
+              <Main />
+              <Footer />
+            </>
+          } />
+          <Route path="/movies" element={
+            <>
+              <Header />
+              <Movies />
+              <Footer />
+            </>
+          } />
+          <Route path="/signin" element={<Login />} />
+          <Route path="/signup" element={<Register />} />
+          <Route path="*" element={<NotFoundPage />} />
+        </Routes>
       </div>
-   
   );
 }
 

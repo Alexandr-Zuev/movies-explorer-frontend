@@ -1,7 +1,6 @@
 .about-me {
     background-color: #202020;
     max-width: 1280px;
-    height: 1079px;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -72,36 +71,4 @@
     text-align: left;
     color: #FFF;
     text-decoration: none;
-}
-
-.about-me__portfolio-title {
-    font-family: Inter;
-    font-size: 18px;
-    font-weight: 400;
-    line-height: 20px;
-    letter-spacing: 0px;
-    text-align: left;
-    color: #8B8B8B;
-    width: 89.0625%;
-    margin: 100px auto 30px auto;
-}
-
-.about-me__portfolio-link {
-    font-family: Inter;
-    font-size: 28px;
-    font-weight: 400;
-    line-height: 50px;
-    letter-spacing: -0.04em;
-    text-align: left;
-    color: #FFF;
-    width: 89.0625%;
-    margin: 20px auto 0 auto;
-    display: flex;
-    justify-content: space-between;
-}
-
-.about-me__portfolio-link-img {
-    width: 29px;
-    height: 60px;
-    box-sizing: border-box;
 }

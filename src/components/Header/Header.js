@@ -1,23 +1,24 @@
 import React from 'react'
+import { useLocation } from 'react-router-dom';
 import logo from '../../images/logo.svg';
+import Navigation from '../Navigation/Navigation';
+import NavTab from '../NavTab/NavTab';
 
-function Header() {
+const Header = () => {
+  const location = useLocation();
+  const isMoviesPage = location.pathname === '/';
+  const headerColor = isMoviesPage ? 'header__background' : '';
 
   return (
-    <header className='header'>
+    <header className={`header ${headerColor}`}>
       <div className="logo">
         <img src={logo} alt="Логотип" />
       </div>
-      <nav className="header__navigation">
-        <a href="/movies">Фильмы</a>
-        <a href="/saved-movies">Сохраненные фильмы</a>
-      </nav>
-      <div className="header__user-actions">
-        <a className='register-button' href="/movies">Регистрация</a>
-        <button className="login-button">Войти</button>
-      </div>
+      <Navigation/>
+      <NavTab/>
     </header>
   );
 };
 
 export default Header;
+
