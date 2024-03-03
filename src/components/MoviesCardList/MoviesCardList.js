@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import MovieCard from '../MoviesCard/MoviesCard';
 
 const MoviesCardList = ({ movies }) => {
-  const [visibleMovies, setVisibleMovies] = useState(12); 
+  const [visibleMovies, setVisibleMovies] = useState(16); 
   const [showLoadMore, setShowLoadMore] = useState(true);
 
   const handleLoadMore = () => {

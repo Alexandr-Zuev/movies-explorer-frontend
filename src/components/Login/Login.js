@@ -61,7 +61,7 @@ const Login = () => {
           <span className="register__error-message">{passwordError}</span>
         </div>
         <button type="submit" className="register__button">Войти</button>
-        <p className="register__span">Ещё не зарегистрированы? <Link to="/signup" className="login__link">Регистрация</Link></p>
+        <p className="register__span">Ещё не зарегистрированы?&nbsp;<Link to="/signup" className="register__link">Регистрация</Link></p>
       </form>
     </div>
   );

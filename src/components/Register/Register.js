@@ -82,7 +82,8 @@ const Register = () => {
           <span className="register__error-message">{passwordError}</span>
         </div>
         <button type="submit" className="register__button">Зарегистрироваться</button>
-        <p className="register__span">Уже зарегистрированы? <Link to="/signin" className="login__link">Войти</Link></p>
+        <p className="register__span">Уже зарегистрированы?&nbsp;<Link to="/signin" className="register__link">Войти</Link></p>
+
       </form>
     </div>
   );

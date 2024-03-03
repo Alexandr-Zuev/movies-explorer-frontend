@@ -1,0 +1,15 @@
+.nav-tab-window {
+    width: 100vh;
+    height: 100%;
+    display: none;
+    position: absolute;
+    flex-direction: column;
+    background-color: #000;
+    z-index: 2;
+    margin: auto;
+    opacity: 0.3;
+}
+
+.nav-tab-window__isopen {
+    display: flex;
+}

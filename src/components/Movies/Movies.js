@@ -275,11 +275,11 @@ const Movies = () => {
       ];
       setMovies(mockMovies);
       setIsLoading(false);
-    }, 3000);
+    }, 1500);
   }, []);
 
   const handleSearch = (keyword) => {
-    console.log('Поиск фильмов по запросу:', keyword);
+    console.log('Поиск фильмов по запросу', keyword);
   };
 
   return (

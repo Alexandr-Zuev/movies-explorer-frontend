@@ -6,10 +6,12 @@ import Movies from '../Movies/Movies';
 import Footer from '../Footer/Footer';
 import Login from '../Login/Login';
 import Register from '../Register/Register';
+import Profile from '../Profile/Profile';
 import NotFoundPage from '../NotFoundPage/NotFoundPage';
 
 
 const App = () => {
+
   return (
       <div className="page">
         <Routes>
@@ -29,6 +31,7 @@ const App = () => {
           } />
           <Route path="/signin" element={<Login />} />
           <Route path="/signup" element={<Register />} />
+          <Route path="/profile" element={<Profile />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </div>
