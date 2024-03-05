@@ -1,18 +1,25 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import NavTabProfile from '../NavTabProfile/NavTabProfile';
 
-const NavTabWindow = ({ isWindowOpen }) => {
-    
+const NavTabWindow = ({ isOpen, onClose }) => {
   const handleClose = () => {
-    const windowEl = document.querySelector('.nav-tab-window');
-    windowEl.classList.remove('nav-tab-window__isopen');
+    onClose(); 
+  };
+
+  const profileStyles = {
+    display: isOpen ? 'flex' : 'initial' 
   };
 
   return (
-    <div className={`nav-tab-window ${isWindowOpen ? 'nav-tab-window__isopen' : ''}`}>
-      <button onClick={handleClose}>Закрыть</button>
-      <button>Навигация 1</button>
-      <button>Навигация 2</button>
-      <button>Навигация 3</button>
+    <div className={`nav-tab-window ${isOpen ? 'nav-tab-window__isopen' : ''}`}>
+      <div className='nav-tab-window__links'>
+        <button className='nav-tab-window__close-button' onClick={onClose}></button>
+        <Link to="/" className="nav-tab-window__link" onClick={handleClose}>Главная</Link>
+        <Link to="/movies" className="nav-tab-window__link" onClick={handleClose}>Фильмы</Link>
+        <Link to="/saved-movies" className="nav-tab-window__link" onClick={handleClose}>Сохранённые фильмы</Link>
+        <NavTabProfile style={profileStyles} />
+      </div>
     </div>
   );
 };

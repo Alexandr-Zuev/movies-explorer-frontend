@@ -275,7 +275,7 @@ const Movies = () => {
       ];
       setMovies(mockMovies);
       setIsLoading(false);
-    }, 1500);
+    }, 1000);
   }, []);
 
   const handleSearch = (keyword) => {

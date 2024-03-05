@@ -4,6 +4,12 @@
     margin: auto 0 auto 45px;
     text-align: center;
   }
+
+  @media (max-width: 768px) {
+    .navigation {
+      display: none; 
+    }
+  }
   
   .navigation a {
     text-decoration: none;

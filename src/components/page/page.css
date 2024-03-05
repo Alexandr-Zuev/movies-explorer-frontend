@@ -33,3 +33,37 @@
     background-color: #424242;
     box-sizing: border-box;
 }
+
+
+@media (max-width: 768px) {
+    .section__title {
+        width: 86.9792%;
+        margin-top: 90px;
+    }
+
+    .section__line {
+        width: 86.9792%;
+    }
+
+    .section__between-line {
+        width: 86.9792%;
+        background-color: #E6E6E6;
+    }
+}
+
+@media (max-width: 710px) {
+    .section__title {
+        width: 88.75%;
+        margin-top: 70px;
+    }
+
+    .section__line {
+        width: 88.75%;
+        margin-top: 27px;
+
+    }
+
+    .section__between-line {
+        width: 88.75%;
+    }
+}

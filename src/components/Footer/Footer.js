@@ -4,7 +4,7 @@ const Footer = () => {
     return (
         <footer className="footer">
             <p className="footer__title">Учебный проект Яндекс.Практикум х BeatFilm.</p>
-            <div className="section__between-line"></div>
+            <div className="footer__between-line"></div>
             <div className="footer__text">
                 <p className="footer__date">© 2024</p>
                 <div className="footer__links">

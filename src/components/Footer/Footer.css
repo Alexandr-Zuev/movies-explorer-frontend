@@ -29,6 +29,13 @@
     margin: 20px auto 0 auto;
 }
 
+.footer__between-line {
+    height: 1px;
+    width: 89.0625%;
+    background-color: #424242;
+    box-sizing: border-box;
+}
+
 .footer__date {
     font-family: Inter;
     font-size: 13px;
@@ -56,4 +63,32 @@
     color: #fff;
     margin: 0;
     text-decoration: none;
+}
+
+@media (max-width: 768px) {
+    .footer__between-line {
+        width: 92.1875%;
+    }
+    .footer__text {
+        width: 92.1875%;
+    }
+}
+
+@media (max-width: 710px) {
+    .footer__between-line {
+        width: 93.75%;
+    }
+    .footer__text {
+        width: 93.75%;
+        flex-direction: column-reverse;
+        margin-top: 30px;
+    }
+    .footer__links {
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+    }
+    .footer__date {
+        margin-top: 30px;
+    }
 }

@@ -6,10 +6,12 @@
 @import url(../src/components/Header/Header.css);
 @import url(../src/components/NavTab/NavTab.css);
 @import url(../src/components/NavTabProfile/NavTabProfile.css);
+@import url(../src/components/NavTabMenu/NavTabMenu.css);
 @import url(../src/components/NavTabWindow/NavTabWindow.css);
 @import url(../src/components/Navigation/Navigation.css);
 @import url(../src/components/Main/Main.css);
 @import url(../src/components/Movies/Movies.css);
+@import url(../src/components/SavedMovies/SavedMovies.css);
 @import url(../src/components/MoviesCardList/MoviesCardList.css);
 @import url(../src/components/Footer/Footer.css);
 @import url(../src/components/Register/Register.css);
