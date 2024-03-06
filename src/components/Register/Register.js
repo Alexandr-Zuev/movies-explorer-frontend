@@ -44,7 +44,7 @@ const Register = () => {
   return (
     <div className="register">
       <form className="register__form" onSubmit={handleSubmit}>
-        <img className="register__logo" src={logo} alt="Логотип" />
+      <Link to="/"><img className="register__logo" src={logo} alt="Логотип" /></Link>
         <h2 className="register__title">Добро пожаловать!</h2>
         <div className="register__input-container">
           <label className="register__input-label" htmlFor="username">Имя</label>

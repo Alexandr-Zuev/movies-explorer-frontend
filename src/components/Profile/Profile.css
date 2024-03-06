@@ -11,6 +11,7 @@
 .profile__form {
     margin: 74px auto 0 auto;
     width: 410px;
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -94,4 +95,26 @@
     color: #EE3465;
     cursor: pointer;
     margin-top: 16px;
+    margin-bottom: 40px;
+}
+
+@media (max-width: 710px) {
+    .profile__form {
+        width: 260px;
+    }
+
+    .profile__title {
+        font-family: Inter;
+        font-size: 24px;
+        font-weight: 500;
+        line-height: 29px;
+        letter-spacing: 0em;
+        text-align: center;
+        color: #fff;
+        margin-bottom: 80px;
+    }
+
+    .profile__submit-button {
+        margin-top: auto;
+    }
 }

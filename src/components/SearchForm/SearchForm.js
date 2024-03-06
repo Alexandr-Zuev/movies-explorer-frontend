@@ -21,6 +21,9 @@ const SearchForm = () => {
             </div>
 
             <div className="search-form__input-info">
+                
+                <div className="search-form__input-group">
+                    
                 <input
                     className="search-form__input"
                     type="text"
@@ -28,9 +31,12 @@ const SearchForm = () => {
                     onChange={handleInputChange}
                 />
                 <button className="search-form__button" type="submit">Найти</button>
-                <div className="search-form__line"></div>
-                <FilterCheckbox />
-                <p className="search-form__text-checkbox">Короткометражки</p>
+
+                </div>
+                <div className="search-form__checkbox-group">
+                    <FilterCheckbox />
+                    <p className="search-form__checkbox-text">Короткометражки</p>
+                </div>
             </div>
         </form>
     );

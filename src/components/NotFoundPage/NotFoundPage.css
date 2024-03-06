@@ -39,3 +39,21 @@
     text-align: center;
     color: #4285F4;
 }
+
+@media (max-width: 710px) {
+    .not-found-page__title {
+        font-size: 80px;
+        line-height: 97px;
+        margin-top: 329px;
+    }
+
+    .not-found-page__text {
+        font-size: 16px;
+        line-height: 19px;
+        margin-bottom: auto;
+    }
+
+    .not-found-page__link {
+        margin-bottom: 30px;
+    }
+}

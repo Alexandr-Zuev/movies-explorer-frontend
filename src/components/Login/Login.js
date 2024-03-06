@@ -32,36 +32,36 @@ const Login = () => {
   };
 
   return (
-    <div className="register">
-      <form className="register__form" onSubmit={handleSubmit}>
-        <img className="register__logo" src={logo} alt="Логотип" />
-        <h2 className="register__title">Рады видеть!</h2>
+    <div className="login">
+      <form className="login__form" onSubmit={handleSubmit}>
+        <Link to="/"><img className="login__logo" src={logo} alt="Логотип" /></Link>
+        <h2 className="login__title">Рады видеть!</h2>
 
-        <div className="register__input-container">
-          <label className="register__input-label" htmlFor="email">Email</label>
+        <div className="login__input-container">
+          <label className="login__input-label" htmlFor="email">Email</label>
           <input
-            className="register__input"
+            className="login__input"
             type="email"
             name="email"
             required
             onChange={handleEmailChange}
           />
-          <span className="register__error-message">{emailError}</span>
+          <span className="login__error-message">{emailError}</span>
         </div>
 
-        <div className="register__input-container">
-          <label className="register__input-label" htmlFor="password">Пароль</label>
+        <div className="login__input-container">
+          <label className="login__input-label" htmlFor="password">Пароль</label>
           <input
-            className="register__input"
+            className="login__input"
             type="password"
             name="password"
             required
             onChange={handlePasswordChange}
           />
-          <span className="register__error-message">{passwordError}</span>
+          <span className="login__error-message">{passwordError}</span>
         </div>
-        <button type="submit" className="register__button">Войти</button>
-        <p className="register__span">Ещё не зарегистрированы?&nbsp;<Link to="/signup" className="register__link">Регистрация</Link></p>
+        <button type="submit" className="login__button">Войти</button>
+        <p className="login__span">Ещё не зарегистрированы?&nbsp;<Link to="/signup" className="login__link ">Регистрация</Link></p>
       </form>
     </div>
   );

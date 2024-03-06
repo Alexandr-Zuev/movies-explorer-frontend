@@ -4,15 +4,16 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    margin: auto 0 auto auto;
     justify-content: space-between;
     background-color: #202020;
     border-radius: 40px;
+    margin-left: auto;
 }
 
 @media (max-width: 768px) {
     .nav-tab-profile {
-        display: none;
+        z-index: -1;
+        margin: auto auto 40px auto;
     }
 }
 
