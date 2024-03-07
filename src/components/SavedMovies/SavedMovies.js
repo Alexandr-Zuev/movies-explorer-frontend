@@ -41,14 +41,14 @@ const SavedMovies = () => {
   };
 
   return (
-    <section className="saved-movies">
+    <main className="saved-movies">
       <SearchForm onSearch={handleSearch} />
       {isLoading ? (
         <Preloader />
       ) : (
         <MoviesCardList movies={movies} />
       )}
-    </section>
+    </main>
   );
 };
 

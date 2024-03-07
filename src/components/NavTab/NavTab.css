@@ -39,3 +39,18 @@
   align-self: center;
   text-decoration: none;
 }
+
+@media (max-width: 710px) {
+  .navtab__register-button {
+    font-size: 10px;
+    font-weight: 500;
+    line-height: 16px;
+    margin-right: 14px;
+  }
+
+  .navtab__login-button {
+    width: 54px;
+    height: 26px;
+    font-size: 10px;
+  }
+}

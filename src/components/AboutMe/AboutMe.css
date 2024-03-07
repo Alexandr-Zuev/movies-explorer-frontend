@@ -5,6 +5,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-top: 12px;
 }
 
 .about-me__columns {
@@ -79,8 +80,14 @@
 }
 
 @media (max-width: 768px) {
+
+    .about-me {
+        padding-top: 0;
+    }
+    
     .about-me__columns {
-        width: 88.75%;
+        width: 86.9792%;
+        height: 307px;
         gap: 49px;
     }
 
@@ -97,17 +104,19 @@
     .about-me__info {
         font-size: 12px;
         line-height: 18px;
+        margin-top: 16px;
     }
 
     .about-me__description {
         font-size: 12px;
         line-height: 18px;
+        margin-top: 20px;
     }
 }
 
 @media (max-width: 710px) {
     .about-me__columns {
-        margin-top: 360px;
+        margin-top: 405px;
         flex-direction: column-reverse;
         align-items: center;
         gap: 0;
@@ -127,6 +136,7 @@
     .about-me__title {
         font-size: 30px;
         line-height: 36px;
+        
     }
 
     .about-me__info {
@@ -138,7 +148,8 @@
     .about-me__description {
         font-size: 11px;
         line-height: 16px;
-        margin-top: 20px;
+        margin-top: 52px;
+    
     }
 
     .about-me__contact {

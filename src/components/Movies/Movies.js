@@ -283,14 +283,14 @@ const Movies = () => {
   };
 
   return (
-    <section className="movies">
+    <main className="movies">
       <SearchForm onSearch={handleSearch} />
       {isLoading ? (
         <Preloader />
       ) : (
         <MoviesCardList movies={movies} />
       )}
-    </section>
+    </main>
   );
 };
 

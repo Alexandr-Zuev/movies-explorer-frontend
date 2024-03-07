@@ -9,7 +9,7 @@
 }
 
 .techs__title {
-    margin: 90px auto 0 auto;
+    margin: 89px auto 0 auto;
     font-family: Inter;
     font-size: 50px;
     font-weight: 400;
@@ -35,7 +35,8 @@
 }
 
 .techs__list {
-    margin: 100px auto 100px auto;
+    margin: 99px auto 100px auto;
+    padding-left: 5px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -65,16 +66,31 @@
 
     .techs__description {
         margin-top: 22px;
+        font-size: 12px;
+        line-height: 18px;
     }
 
     .techs__list {
-        margin-top: 83px;
+        margin-top: 79px;
         margin-bottom: 90px;
         width: 86.9792%;
+        padding-left: 15px;
     }
+
+    .techs__list-item {
+        width: 84px;
+        height: 57px;
+        font-size: 12px;
+        line-height: 15px;
+    }
+
 }
 
 @media (max-width: 710px) {
+    .techs {
+        background-color: #202020;
+    }
+
     .techs__title {
         margin-top: 60px;
         width: 292px;
@@ -88,11 +104,12 @@
         margin-top: 24px;
         font-size: 11px;
         line-height: 16px;
+        margin-top: 2px;
     }
 
     .techs__list {
         width: 190px;
         margin-top: 50px;
-        margin-bottom: 140px;
+        margin-bottom: 70px;
     }
 }
