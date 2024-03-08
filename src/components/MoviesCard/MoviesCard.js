@@ -15,6 +15,7 @@ const MovieCard = ({movie}) => {
         <button 
           className={`movie-card__like-button ${isLiked ? 'movie-card__like-button_active' : ''}`}
           onClick={handleLikeClick}
+          type="button" 
         ></button>
       </div>
       <p className="movie-card__duration">{movie.duration}м</p>

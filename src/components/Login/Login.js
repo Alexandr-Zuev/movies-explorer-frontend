@@ -35,7 +35,7 @@ const Login = () => {
     <div className="login">
       <form className="login__form" onSubmit={handleSubmit}>
         <Link to="/"><img className="login__logo" src={logo} alt="Логотип" /></Link>
-        <h2 className="login__title">Рады видеть!</h2>
+        <h1 className="login__title">Рады видеть!</h1>
 
         <div className="login__input-container">
           <label className="login__input-label" htmlFor="email">Email</label>

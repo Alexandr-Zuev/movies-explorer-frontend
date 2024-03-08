@@ -38,8 +38,6 @@
     border: none;
     display: flex;
     flex-direction: row;
-
-
 }
 
 .search-form__input-info {
@@ -50,7 +48,6 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-
 }
 
 .search-form__icon {
@@ -138,9 +135,7 @@
     .search-form__checkbox-group {
         margin-left: 20px;
     }
-
 }
-
 
 @media (max-width: 710px) {
     .search-form {

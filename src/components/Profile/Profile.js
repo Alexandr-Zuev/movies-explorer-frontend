@@ -1,36 +1,49 @@
 import React from 'react';
-import Header from '../Header/Header';
+import { useNavigate } from 'react-router-dom'; 
 
 const Profile = () => {
+    const navigate = useNavigate();
+
+    const handleSubmit = (event) => {
+        event.preventDefault(); 
+       
+    };
+
+    const handleLogout = () => {
+      
+        navigate('/signin');
+    };
 
     return (
-
-        <div className="profile">
-            <Header />
-            <form className="profile__form" >
-                <h2 className="profile__title">Привет, Виталий!</h2>
+        <main className="profile">
+            <form className="profile__form" onSubmit={handleSubmit}>
+                <h1 className="profile__title">Привет, Виталий!</h1>
                 <div className="profile__input-container">
-                    <label className="profile__input-label" htmlFor="username">Имя</label>
+                    <label className="profile__input-label">Имя</label>
                     <input
                         className="profile__input"
                         name="username"
                         type="text"
                         required
+                        placeholder='Виталий'
+                        minLength="2"
+                        maxLength="30"
                     />
                 </div>
                 <div className="profile__input-container">
-                    <label className="profile__input-label" htmlFor="email">Email</label>
+                    <label className="profile__input-label">E-mail</label>
                     <input
                         className="profile__input"
                         type="email"
                         name="email"
                         required
+                        placeholder='pochta@yandex.ru'
                     />
                 </div>
                 <button type="submit" className="profile__submit-button">Редактировать</button>
-                <button type="submit" className="profile__out-button">Выйти из аккаунта</button>
             </form>
-        </div>
+            <button onClick={handleLogout} className="profile__out-button">Выйти из аккаунта</button>
+        </main>
     );
 }
 

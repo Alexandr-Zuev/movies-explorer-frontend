@@ -42,10 +42,10 @@ const Register = () => {
   };
 
   return (
-    <div className="register">
+    <main className="register">
       <form className="register__form" onSubmit={handleSubmit}>
       <Link to="/"><img className="register__logo" src={logo} alt="Логотип" /></Link>
-        <h2 className="register__title">Добро пожаловать!</h2>
+        <h1 className="register__title">Добро пожаловать!</h1>
         <div className="register__input-container">
           <label className="register__input-label" htmlFor="username">Имя</label>
           <input
@@ -53,6 +53,8 @@ const Register = () => {
             name="username"
             type="text"
             required
+            minLength="2"
+            maxlength="30"
             onChange={handleNameChange}
           />
           <span className="register__error-message">{nameError}</span>
@@ -85,7 +87,7 @@ const Register = () => {
         <p className="register__span">Уже зарегистрированы?&nbsp;<Link to="/signin" className="register__link">Войти</Link></p>
 
       </form>
-    </div>
+    </main>
   );
 }
 

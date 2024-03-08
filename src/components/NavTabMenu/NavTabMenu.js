@@ -6,7 +6,7 @@ const NavTabMenu = () => {
 
     const { openNavTabWindow } = useContext(NavTabContext);
     return (
-        <button className="nav-tab-menu" onClick={openNavTabWindow}></button>
+        <button type="button" className="nav-tab-menu" onClick={openNavTabWindow}></button>
     );
 }
 

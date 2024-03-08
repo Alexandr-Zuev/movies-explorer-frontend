@@ -26,6 +26,7 @@ const SearchForm = () => {
                     
                 <input
                     className="search-form__input"
+                    required
                     type="text"
                     value={inputValue}
                     onChange={handleInputChange}

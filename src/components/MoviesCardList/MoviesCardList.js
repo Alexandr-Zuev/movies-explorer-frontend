@@ -17,7 +17,7 @@ const MoviesCardList = ({ movies }) => {
         <MovieCard key={movie.id} movie={movie} />
       ))}
       {showLoadMore && movies.length > visibleMovies && (
-        <button onClick={handleLoadMore} className="movies-card-list__button-more">Ещё</button>
+        <button type="button" onClick={handleLoadMore} className="movies-card-list__button-more">Ещё</button>
       )}
     </section>
   );

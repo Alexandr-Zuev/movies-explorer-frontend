@@ -1,8 +1,9 @@
 .navigation {
     display: flex;
     flex-direction: row;
-    margin: auto 0 auto 45px;
     text-align: center;
+    margin-left: 44px;
+    margin-right: auto;
   }
 
   @media (max-width: 768px) {
@@ -13,7 +14,7 @@
   
   .navigation a {
     text-decoration: none;
-    color: #FFF;
+    color: #fff;
     margin-right: 16px;
     font-family: Inter;
     font-size: 13px;
@@ -22,6 +23,7 @@
     letter-spacing: 0em;
   }
   
-  .header__navigation a:hover {
+  .navigation a:hover {
     font-weight: 500;
+    font-size: 14px;
   }

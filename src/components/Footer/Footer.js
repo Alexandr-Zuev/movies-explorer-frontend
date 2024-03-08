@@ -7,8 +7,8 @@ const Footer = () => {
             <div className="footer__text">
                 <p className="footer__date">© 2024</p>
                 <div className="footer__links">
-                    <a href="https://practicum.yandex.ru" className="footer__link">Яндекс.Практикум</a>
-                    <a href="https://github.com/Alexandr-Zuev" className="footer__link">Github</a>
+                    <a href="https://practicum.yandex.ru" target="_blank" rel="noopener noreferrer" className="footer__link">Яндекс.Практикум</a>
+                    <a href="https://github.com/Alexandr-Zuev" target="_blank" rel="noopener noreferrer" className="footer__link">Github</a>
                 </div>
             </div>
 
