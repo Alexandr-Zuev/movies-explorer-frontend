@@ -12,7 +12,7 @@
 @media (max-width: 768px) {
     .nav-tab-profile {
         z-index: -1;
-        margin: auto auto 40px auto;
+        margin: auto auto 0 auto;
     }
 }
 
@@ -21,7 +21,6 @@
 }
 
 .nav-tab-profile__link {
-    font-family: Inter;
     font-size: 13px;
     font-weight: 500;
     line-height: 12px;

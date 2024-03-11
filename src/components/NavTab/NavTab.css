@@ -8,7 +8,6 @@
   text-decoration: none;
   color: #FFF;
   margin-right: 30px;
-  font-family: Inter;
   font-size: 12px;
   font-weight: 400;
   line-height: 16px;
@@ -17,12 +16,15 @@
   align-self: center;
 }
 
+.navtab__register-button:hover {
+  opacity: 0.7;
+}
+
 .navtab__login-button {
   background: #3DDC84;
   width: 76px;
   height: 32px;
   border-radius: 3px;
-  font-family: Inter;
   font-size: 12px;
   font-weight: 500;
   line-height: 16px;
@@ -38,6 +40,10 @@
   outline: none;
   align-self: center;
   text-decoration: none;
+}
+
+.navtab__login-button:hover {
+  opacity: 0.7;
 }
 
 @media (max-width: 710px) {

@@ -38,7 +38,6 @@
 }
 
 .nav-tab-window__link {
-    font-family: Inter;
     font-size: 18px;
     font-weight: 500;
     line-height: 22px;
@@ -53,3 +52,21 @@
    border-bottom: 2px solid #fff;;
 }
 
+.nav-tab-window__link:last-child {
+    margin-top: auto;
+    margin-bottom: 87px;
+    border-bottom: none;
+ }
+
+ @media (max-width: 710px) {
+    .nav-tab-window__close-button {
+        margin: 19px 19px 104px auto;
+    }
+    .nav-tab-window__link {
+        margin-bottom: 24px;
+    }
+
+    .nav-tab-window__link:last-child {
+      margin-bottom: 47px;
+     }
+}

@@ -79,6 +79,8 @@ const Register = () => {
             type="password"
             name="password"
             required
+            minLength="6"
+            maxlength="30"
             onChange={handlePasswordChange}
           />
           <span className="register__error-message">{passwordError}</span>

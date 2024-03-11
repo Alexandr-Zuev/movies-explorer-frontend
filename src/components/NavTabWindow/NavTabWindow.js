@@ -18,7 +18,7 @@ const NavTabWindow = ({ isOpen, onClose }) => {
         <Link to="/" className="nav-tab-window__link" onClick={handleClose}>Главная</Link>
         <Link to="/movies" className="nav-tab-window__link" onClick={handleClose}>Фильмы</Link>
         <Link to="/saved-movies" className="nav-tab-window__link" onClick={handleClose}>Сохранённые фильмы</Link>
-        <NavTabProfile style={profileStyles} />
+        <Link to="/profile" className="nav-tab-window__link" onClick={handleClose}><NavTabProfile style={profileStyles} /></Link>
       </div>
     </div>
   );

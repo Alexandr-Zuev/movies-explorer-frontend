@@ -55,6 +55,8 @@ const Login = () => {
             className="login__input"
             type="password"
             name="password"
+            minLength="6"
+            maxlength="30"
             required
             onChange={handlePasswordChange}
           />

@@ -8,18 +8,15 @@ const Portfolio = () => {
             <ul className="portfolio__list">
                 <li className="portfolio__item">
                     <a target="_blank" rel="noopener noreferrer" href="https://github.com/Alexandr-Zuev/russian-travel">
-                        Статичный сайт</a>
-                    <img className="portfolio__link-img" src={linkImg} alt="Изображение ссылки" />
+                        Статичный сайт <img className="portfolio__link-img" src={linkImg} alt="Изображение ссылки" /></a>
                 </li>
                 <li className="portfolio__item">
                     <a target="_blank" rel="noopener noreferrer" href="https://github.com/Alexandr-Zuev/mesto">
-                        Адаптивный сайт</a>
-                    <img className="portfolio__link-img" src={linkImg} alt="Изображение ссылки" />
+                        Адаптивный сайт <img className="portfolio__link-img" src={linkImg} alt="Изображение ссылки" /></a>
                 </li>
                 <li className="portfolio__item">
                     <a target="_blank" rel="noopener noreferrer" href="https://github.com/Alexandr-Zuev/mesto-react">
-                        Одностраничное приложение</a>
-                    <img className="portfolio__link-img" src={linkImg} alt="Изображение ссылки" />
+                        Одностраничное приложение <img className="portfolio__link-img" src={linkImg} alt="Изображение ссылки" /></a>
                 </li>
             </ul>
         </section>

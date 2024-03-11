@@ -10,7 +10,7 @@
 }
 
 .profile__form {
-    margin: 80px auto auto auto;
+    margin: 74px auto auto auto;
     width: 410px;
     height: 100%;
     display: flex;
@@ -127,7 +127,7 @@
         width: 260px;
     }
     .profile__title {
-     margin-bottom: 65px;
+     margin-bottom: 64px;
     }
     .profile__submit-button {
         margin-top: 362px;

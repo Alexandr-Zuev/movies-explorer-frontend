@@ -47,7 +47,6 @@
 .portfolio__item a {
     display: inline-block;
     text-decoration: none;
-    font-family: Inter;
     font-size: 30px;
     font-weight: 400;
     line-height: 50px;
@@ -55,12 +54,20 @@
     text-align: left;
     color: #fff;
     min-width: min-content;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.portfolio__item a:hover {
+    opacity: 0.7;
 }
 
 .portfolio__link-img {
     width: 18px;
     object-fit: contain;
-    margin-right: 5px;
+    margin: auto 5px auto auto;
 }
 
 @media (max-width: 768px) {

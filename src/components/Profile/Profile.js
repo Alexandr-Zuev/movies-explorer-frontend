@@ -1,5 +1,7 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom'; 
+import { useNavigate } from 'react-router-dom';
+import Header from '../Header/Header';
+
 
 const Profile = () => {
     const navigate = useNavigate();
@@ -15,6 +17,8 @@ const Profile = () => {
     };
 
     return (
+        <>
+        <Header />
         <main className="profile">
             <form className="profile__form" onSubmit={handleSubmit}>
                 <h1 className="profile__title">Привет, Виталий!</h1>
@@ -44,6 +48,7 @@ const Profile = () => {
             </form>
             <button onClick={handleLogout} className="profile__out-button">Выйти из аккаунта</button>
         </main>
+        </>
     );
 }
 
