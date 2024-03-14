@@ -8,6 +8,10 @@
     cursor: pointer;
 }
 
+.nav-tab-menu:hover {
+  opacity: 0.7;
+}
+
 @media (max-width: 768px) {
     .nav-tab-menu {
       display: block; 

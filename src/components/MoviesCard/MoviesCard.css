@@ -1,6 +1,6 @@
 .movie-card {
-    width: 270px;
-    height: 230px;
+    width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     margin: 0 auto 0 auto;
@@ -84,7 +84,7 @@
     }
 }
 
-@media (max-width: 710px) {
+@media (max-width: 750px) {
     .movie-card {
         height: 246px;
         width: 300px;

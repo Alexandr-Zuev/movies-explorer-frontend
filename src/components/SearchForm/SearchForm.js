@@ -19,22 +19,19 @@ const SearchForm = () => {
                     </>
                 ) : null}
             </div>
-
+            <input
+                className="search-form__input"
+                required
+                type="text"
+                value={inputValue}
+                onChange={handleInputChange}
+                minLength="2"
+                maxlength="30"
+                placeholder=''
+            />
             <div className="search-form__input-info">
-                
                 <div className="search-form__input-group">
-                    
-                <input
-                    className="search-form__input"
-                    required
-                    type="text"
-                    value={inputValue}
-                    onChange={handleInputChange}
-                    minLength="2"
-                    maxlength="30"
-                />
-                <button className="search-form__button" type="submit">Найти</button>
-
+                    <button className="search-form__button" type="submit">Найти</button>
                 </div>
                 <div className="search-form__checkbox-group">
                     <FilterCheckbox />

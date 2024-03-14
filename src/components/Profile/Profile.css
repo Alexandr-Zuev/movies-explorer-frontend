@@ -6,7 +6,6 @@
     flex-direction: column;
     align-items: center;
     background-color: #202020;
-
 }
 
 .profile__form {
@@ -19,7 +18,6 @@
 }
 
 .profile__title {
-    font-family: Inter;
     font-size: 24px;
     font-weight: 500;
     line-height: 29px;
@@ -36,7 +34,6 @@
     background-color: #202020;
     border: none;
     outline: none;
-    font-family: Inter;
     font-size: 11px;
     font-weight: 400;
     line-height: 13px;
@@ -81,7 +78,6 @@
 .profile__submit-button {
     background-color: transparent;
     border: none;
-    font-family: Inter;
     font-size: 13px;
     font-weight: 400;
     line-height: 16px;
@@ -92,10 +88,13 @@
     margin-top: 204px;
 }
 
+.profile__submit-button:hover {
+    opacity: 0.7;
+}
+
 .profile__out-button {
     background-color: transparent;
     border: none;
-    font-family: Inter;
     font-size: 13px;
     font-weight: 500;
     line-height: 16px;
@@ -105,6 +104,10 @@
     cursor: pointer;
     margin-top: 15px;
     margin-bottom: 40px;
+}
+
+.profile__out-button:hover {
+    opacity: 0.7;
 }
 
 @media (max-width: 768px) {
@@ -126,9 +129,11 @@
         margin-top: 71px;
         width: 260px;
     }
+
     .profile__title {
-     margin-bottom: 64px;
+        margin-bottom: 64px;
     }
+
     .profile__submit-button {
         margin-top: 362px;
     }
@@ -143,7 +148,3 @@
         line-height: 15px;
     }
 }
-
-
-
-

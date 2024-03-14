@@ -24,7 +24,7 @@ const Header = () => {
   };
 
   return (
-    <header className={`header ${isMoviesPage ? 'header__background' : ''}`}>
+    <header className={`header ${isMoviesPage ? 'header_background' : ''}`}>
       <div className="header__content">
         <div className="logo">
           <Link to="/">

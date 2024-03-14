@@ -73,6 +73,8 @@
         margin-bottom: 90px;
         width: 86.9792%;
         padding-left: 15px;
+        align-items: center;
+        justify-content: center;
     }
 
     .techs__list-item {
@@ -109,5 +111,7 @@
         width: 190px;
         margin-top: 50px;
         margin-bottom: 70px;
+        align-items: center;
+        justify-content: start;
     }
 }

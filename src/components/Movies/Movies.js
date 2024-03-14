@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import SearchForm from '../SearchForm/SearchForm';
 import MoviesCardList from '../MoviesCardList/MoviesCardList';
 import Preloader from '../Preloader/Preloader';
+import { api } from '../../utils/MoviesApi';
 
 const Movies = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -273,9 +274,19 @@ const Movies = () => {
           image: "https://i.pinimg.com/originals/96/d7/98/96d79804f99e9dae0f97df33cd9a77af.jpg"
         }
       ];
-      setMovies(mockMovies);
-      setIsLoading(false);
-    }, 1000);
+
+      api
+      .getInitialFilms()
+      .then(movies => {
+          console.log(movies);
+          setMovies(mockMovies);
+          setIsLoading(false);
+      })
+      .catch(error => {
+          console.error('Ошибка при загрузке данных:', error);
+          setIsLoading(false);
+      });
+}, 1000);
   }, []);
 
   const handleSearch = (keyword) => {

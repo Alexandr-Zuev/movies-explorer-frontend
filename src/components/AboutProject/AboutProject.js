@@ -3,8 +3,7 @@ import React from 'react'
 const AboutProject = () => {
   return (
     <section className="about-project">
-      <h2 className="section__title">О проекте</h2>
-
+      <h2 className="section-title">О проекте</h2>
       <div className="about-project__columns">
         <div className="about-project__column">
           <h3 className='about-project__column-title'>Дипломный проект включал 5 этапов</h3>

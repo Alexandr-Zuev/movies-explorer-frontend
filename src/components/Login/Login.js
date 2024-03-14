@@ -36,7 +36,6 @@ const Login = () => {
       <form className="login__form" onSubmit={handleSubmit}>
         <Link to="/"><img className="login__logo" src={logo} alt="Логотип" /></Link>
         <h1 className="login__title">Рады видеть!</h1>
-
         <div className="login__input-container">
           <label className="login__input-label" htmlFor="email">Email</label>
           <input
@@ -45,6 +44,7 @@ const Login = () => {
             name="email"
             required
             onChange={handleEmailChange}
+            placeholder=''
           />
           <span className="login__error-message">{emailError}</span>
         </div>
@@ -59,6 +59,7 @@ const Login = () => {
             maxlength="30"
             required
             onChange={handlePasswordChange}
+            placeholder=''
           />
           <span className="login__error-message">{passwordError}</span>
         </div>

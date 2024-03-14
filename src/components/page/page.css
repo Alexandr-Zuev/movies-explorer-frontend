@@ -9,7 +9,7 @@
     margin: 0;
 }
 
-.section__title {
+.section-title {
     width: 89.0625%;
     margin: 100px auto 0 auto;
     color: white;
@@ -21,7 +21,6 @@
     border-bottom: 1px solid #DADADA;
     padding-bottom: 23px;
 }
-
 
 @media (max-width: 768px) {
     .section__title {

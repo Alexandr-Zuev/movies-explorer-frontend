@@ -9,6 +9,10 @@
     border-radius: 40px;
 }
 
+.nav-tab-profile:hover {
+    opacity: 0.7;
+}
+
 @media (max-width: 768px) {
     .nav-tab-profile {
         z-index: -1;

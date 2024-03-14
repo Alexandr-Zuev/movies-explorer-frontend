@@ -41,6 +41,10 @@
     cursor: pointer;
 }
 
+.not-found-page__link:hover {
+    opacity: 0.7;
+}
+
 @media (max-width: 710px) {
     .not-found-page__title {
         font-size: 80px;

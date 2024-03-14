@@ -56,10 +56,10 @@ const Register = () => {
             minLength="2"
             maxlength="30"
             onChange={handleNameChange}
+            placeholder=''
           />
           <span className="register__error-message">{nameError}</span>
         </div>
-
         <div className="register__input-container">
           <label className="register__input-label" htmlFor="email">Email</label>
           <input
@@ -68,10 +68,10 @@ const Register = () => {
             name="email"
             required
             onChange={handleEmailChange}
+            placeholder=''
           />
           <span className="register__error-message">{emailError}</span>
         </div>
-
         <div className="register__input-container">
           <label className="register__input-label" htmlFor="password">Пароль</label>
           <input
@@ -82,12 +82,12 @@ const Register = () => {
             minLength="6"
             maxlength="30"
             onChange={handlePasswordChange}
+            placeholder=''
           />
           <span className="register__error-message">{passwordError}</span>
         </div>
         <button type="submit" className="register__button">Зарегистрироваться</button>
         <p className="register__span">Уже зарегистрированы?&nbsp;<Link to="/signin" className="register__link">Войти</Link></p>
-
       </form>
     </main>
   );
