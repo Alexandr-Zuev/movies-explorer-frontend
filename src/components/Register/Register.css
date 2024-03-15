@@ -1,0 +1,155 @@
+.register {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #202020;
+}
+
+.register__form {
+    width: 396px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 70px;
+}
+
+.register__logo {
+    width: 38px;
+    height: 38px;
+}
+
+.register__title {
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 29px;
+    letter-spacing: 0em;
+    color: #fff;
+    margin: 34px auto 16px 0;
+}
+
+.register__input-container {
+    width: 100%;
+    margin-top: 22px;
+}
+
+.register__input-label {
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 12px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #8B8B8B;
+    padding-bottom: 25px;
+}
+
+.register__error-message {
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 12px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #EE3465;
+}
+
+.register__input {
+    width: 100%;
+    height: 27px;
+    box-sizing: border-box;
+    color: #fff;
+    background-color: #202020;
+    border: none;
+    border-bottom: 1px solid #424242;
+    outline: none;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 17px;
+    letter-spacing: 0em;
+    text-align: left;
+    padding-bottom: 10px;
+}
+
+.register__input:focus {
+    border-bottom: 1px solid #4285F4;
+}
+
+.register__button {
+    width: 100%;
+    height: 45px;
+    background-color: #4285F4;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 17px;
+    letter-spacing: 0em;
+    text-align: center;
+    color: #FFF;
+    border-radius: 3px;
+    border: none;
+    margin-top: 136px;
+    cursor: pointer;
+}
+
+.register__button:hover {
+    opacity: 0.8;
+}
+
+.register__span {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 16px auto 0 auto;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 17px;
+    letter-spacing: 0em;
+    text-align: center;
+    color: #8B8B8B;
+}
+
+.register__link {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 17px;
+    letter-spacing: 0em;
+    text-align: center;
+    color: #4285F4;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.register__link:hover {
+    opacity: 0.7;
+}
+
+@media (max-width: 710px) {
+    .register__form {
+        align-items: center;
+    }
+
+    .register__title {
+        margin: 44px auto 56px auto;
+    }
+
+    .register__form {
+        width: 260px;
+    }
+
+    .register__span {
+        font-size: 12px;
+        line-height: 15px;
+        margin-top: 14px;
+        margin-bottom: 30px;
+    }
+
+    .register__link {
+        font-size: 12px;
+        line-height: 15px;
+    }
+    .register__button {
+        margin-top: 240px;
+        font-size: 12px;
+        line-height: 15px;
+    }
+}

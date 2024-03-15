@@ -1,0 +1,19 @@
+.nav-tab-menu {
+    display: none; 
+    width: 44px;
+    height: 44px;
+    border: none;
+    background: none;
+    background-image: url('../../images/menu-icon.svg');
+    cursor: pointer;
+}
+
+.nav-tab-menu:hover {
+  opacity: 0.7;
+}
+
+@media (max-width: 768px) {
+    .nav-tab-menu {
+      display: block; 
+    }
+  }
