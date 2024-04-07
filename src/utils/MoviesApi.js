@@ -13,13 +13,11 @@ class Api {
     getInitialFilms() {
         return fetch(`${this.baseUrl}`).then(this._getResponseData);
     }
-
-
 }
 
-const api = new Api({
+const movieapi = new Api({
     baseUrl: 'https://api.nomoreparties.co/beatfilm-movies',
 
 });
 
-export { Api, api };
+export { Api, movieapi };

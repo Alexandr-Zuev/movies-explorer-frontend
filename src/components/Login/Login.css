@@ -74,6 +74,13 @@
     border-bottom: 1px solid #4285F4;
 }
 
+.login__submit-conteiner {
+    margin-top: 215px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .login__button {
     width: 100%;
     height: 45px;
@@ -86,8 +93,13 @@
     color: #FFF;
     border-radius: 3px;
     border: none;
-    margin-top: 222px;
+    margin-top: 7px;
     cursor: pointer;
+}
+
+.register__button--disabled {
+    background-color: #F8F8F8;
+    color: #C2C2C2;
 }
 
 .login__button:hover {

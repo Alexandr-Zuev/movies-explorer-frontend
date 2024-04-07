@@ -12,6 +12,10 @@
     object-fit: cover;
 }
 
+.movie-card__poster:hover {
+   cursor: pointer;
+}
+
 .movie-card__info {
     width: 100%;
     display: flex;
@@ -45,6 +49,25 @@
     overflow: visible;
     align-self: center;
     margin: 0;
+}
+
+.movie-card__delete-button {
+    background-image: url('../../images/delete-icon.svg');
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    border: none;
+    min-width: 22px;
+    min-height: 22px;
+    cursor: pointer;
+    overflow: visible;
+    align-self: center;
+    margin: 0;
+}
+
+.movie-card__delete-button:hover  {
+    opacity: 0.5;
 }
 
 .movie-card__like-button:hover {

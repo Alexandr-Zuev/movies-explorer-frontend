@@ -73,6 +73,12 @@
 .register__input:focus {
     border-bottom: 1px solid #4285F4;
 }
+.register__submit-conteiner {
+    margin-top: 130px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
 .register__button {
     width: 100%;
@@ -86,8 +92,13 @@
     color: #FFF;
     border-radius: 3px;
     border: none;
-    margin-top: 136px;
     cursor: pointer;
+    margin-top: 6px;
+}
+
+.register__button--disabled {
+    background-color: #F8F8F8;
+    color: #C2C2C2;
 }
 
 .register__button:hover {

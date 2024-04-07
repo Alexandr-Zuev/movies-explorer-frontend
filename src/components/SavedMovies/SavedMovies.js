@@ -1,54 +1,92 @@
 import React, { useState, useEffect } from 'react';
+import Header from '../Header/Header';
+import Footer from '../Footer/Footer';
 import SearchForm from '../SearchForm/SearchForm';
 import MoviesCardList from '../MoviesCardList/MoviesCardList';
 import Preloader from '../Preloader/Preloader';
+import { api } from '../../utils/MainApi';
 
-const SavedMovies = () => {
+const SavedMovies = ({ loggedIn }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [movies, setMovies] = useState([]);
+  const [error, setError] = useState('');
+  const [keyword, setKeyword] = useState('');
+  const [shortFilmChecked, setShortFilmChecked] = useState(false);
+  const [likedMovies, setLikedMovies] = useState([]);
+
+  const handleDeleteFromFavorites = (deletedMovieId) => {
+    setMovies(movies => movies.filter(movie => movie.movieId !== deletedMovieId));
+  };
 
   useEffect(() => {
-    setIsLoading(true);
-    setTimeout(() => {
-      const mockMovies = [
-        {
-          nameRU: "Начало",
-          director: "Кристофер Нолан",
-          year: 2010,
-          genre: "Научная фантастика",
-          rating: 8.8,
-          duration: 148,
-          image: "https://avatars.mds.yandex.net/i?id=6f44bd6a2558e3e566a3b54cdda33d0866813a4f-10465630-images-thumbs&n=13"
-        },
-        {
-          nameRU: "Побег из Шоушенка",
-          director: "Фрэнк Дарабонт",
-          year: 1994,
-          genre: "Драма",
-          rating: 9.3,
-          duration: 142,
-          image: "https://www.film.ru/sites/default/files/movies/posters/1613230-1436375.jpg"
-        }
-      
-      ];
-      setMovies(mockMovies);
-      setIsLoading(false);
-    }, 1000);
+    const fetchLikedMovies = async () => {
+      try {
+        const likedMoviesData = await api.getMovies();
+        setLikedMovies(likedMoviesData);
+        setMovies(likedMoviesData);
+      } catch (error) {
+        console.error('Ошибка получения данных:', error.message);
+      }
+    };
+    fetchLikedMovies();
   }, []);
 
+  useEffect(() => {
+    const fetchFilteredMovies = async () => {
+      try {
+        setIsLoading(true);
+        setError('');
+        const filteredMoviesData = likedMovies.filter(movie =>
+        (movie.nameRU.toLowerCase().includes(keyword.toLowerCase()) ||
+          movie.nameEN.toLowerCase().includes(keyword.toLowerCase()))
+        );
+        if (shortFilmChecked) {
+          const shortFilms = filteredMoviesData.filter(movie => movie.duration <= 40);
+          setMovies(shortFilms);
+        } else {
+          setMovies(filteredMoviesData);
+        }
+        setIsLoading(false);
+      } catch (error) {
+        console.error('Ошибка при фильтрации данных:', error);
+        setIsLoading(false);
+        setError('Во время запроса произошла ошибка. Пожалуйста, попробуйте еще раз.');
+      }
+    };
+
+    if (keyword.trim() !== '') {
+      fetchFilteredMovies();
+    }
+  }, [keyword, shortFilmChecked, likedMovies]);
+
   const handleSearch = (keyword) => {
-    console.log('Поиск фильмов по запросу', keyword);
+    setKeyword(keyword);
+  };
+
+  const handleCheckboxChange = () => {
+    setShortFilmChecked(!shortFilmChecked);
   };
 
   return (
-    <main className="saved-movies">
-      <SearchForm onSearch={handleSearch} />
-      {isLoading ? (
-        <Preloader />
-      ) : (
-        <MoviesCardList movies={movies} />
-      )}
-    </main>
+    <>
+      <Header loggedIn={loggedIn} />
+      <main className="movies">
+        <SearchForm onSearch={handleSearch} onChecked={shortFilmChecked} handleCheckboxChange={handleCheckboxChange} />
+        {isLoading ? (
+          <Preloader />
+        ) : (
+          <>
+            {error && <p className="movies__error">{error}</p>}
+            {movies.length === 0 ? (
+              <p className="movies__error">Ничего не найдено</p>
+            ) : (
+              <MoviesCardList movies={movies} shortFilmChecked={shortFilmChecked} likedMovies={likedMovies} onDeleteFromFavorites={handleDeleteFromFavorites} />
+            )}
+          </>
+        )}
+      </main>
+      <Footer />
+    </>
   );
 };
 

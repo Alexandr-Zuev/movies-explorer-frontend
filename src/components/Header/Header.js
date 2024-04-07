@@ -6,12 +6,13 @@ import NavTab from '../NavTab/NavTab';
 import NavTabProfile from '../NavTabProfile/NavTabProfile';
 import NavTabMenu from '../NavTabMenu/NavTabMenu';
 
-const Header = () => {
+const Header = ({loggedIn}) => {
   const location = useLocation();
   const isMoviesPage = location.pathname === '/';
 
+
   const NavTabComponent = () => {
-    if (isMoviesPage) {
+    if (!loggedIn) {
       return <NavTab />;
     } else {
       return (
@@ -31,7 +32,7 @@ const Header = () => {
             <img src={logo} alt="Логотип" />
           </Link>
         </div>
-        {!isMoviesPage && <Navigation />}
+        {loggedIn && <Navigation />}
         <NavTabComponent />
       </div>
     </header>

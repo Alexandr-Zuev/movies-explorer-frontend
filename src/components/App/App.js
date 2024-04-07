@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect} from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Header from '../Header/Header';
 import Main from '../Main/Main';
@@ -10,11 +10,23 @@ import Register from '../Register/Register';
 import Profile from '../Profile/Profile';
 import NotFoundPage from '../NotFoundPage/NotFoundPage';
 import NavTabWindow from '../NavTabWindow/NavTabWindow';
-
-export const NavTabContext = React.createContext();
+import ProtectedRouteElement from '../ProtectedRoute/ProtectedRoute';
+import CurrentUserContext from '../../contexts/CurrentUserContext.js';
+import NavTabContext from '../../contexts/NavTabContext.js';
+import { api } from '../../utils/MainApi.js';
 
 const App = () => {
   const [isNavTabWindowOpen, setIsNavTabWindowOpen] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(false);
+  const [currentUser, setCurrentUser] = useState({});
+
+  const handleLogin = () => {
+    setLoggedIn(true);
+  };
+
+  const handleOut = () => {
+    setLoggedIn(false);
+  };
 
   const openNavTabWindow = () => {
     setIsNavTabWindowOpen(true);
@@ -24,47 +36,54 @@ const App = () => {
     setIsNavTabWindowOpen(false);
   };
 
+  useEffect(() => {
+    if (loggedIn) {
+      api
+        .getUserInfo()
+        .then(userInfo => {
+          setCurrentUser (userInfo);
+        })
+        .catch(error => {
+          console.error('Ошибка при получении информации о пользователе:', error);
+        });
+    }
+  }, [loggedIn]);
+
   return (
     <div className="page">
-      <NavTabContext.Provider value={{ openNavTabWindow, closeNavTabWindow }}>
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <>
-                <Header />
-                <Main />
-                <Footer />
-              </>
-            }
-          />
-          <Route
-            path="/movies"
-            element={
-              <>
-                <Header />
-                <Movies />
-                <Footer />
-              </>
-            }
-          />
-          <Route
-            path="/saved-movies"
-            element={
-              <>
-                <Header />
-                <SavedMovies />
-                <Footer />
-              </>
-            }
-          />
-          <Route path="/signin" element={<Login />} />
-          <Route path="/signup" element={<Register />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="*" element={<NotFoundPage />} />
-        </Routes>
-        <NavTabWindow isOpen={isNavTabWindowOpen} onClose={closeNavTabWindow} />
-      </NavTabContext.Provider>
+      <CurrentUserContext.Provider value={currentUser}>
+        <NavTabContext.Provider value={{ openNavTabWindow, closeNavTabWindow }}>
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <>
+                  <Header loggedIn={loggedIn} />
+                  <Main />
+                  <Footer />
+                </>
+              }
+            />
+            <Route
+              path="/movies"
+              element={<ProtectedRouteElement component={Movies} loggedIn={loggedIn} />}
+            />
+            <Route
+              path="/saved-movies"
+              element={<ProtectedRouteElement component={SavedMovies} loggedIn={loggedIn} />}
+            />
+            <Route
+              path="/profile"
+              element={<ProtectedRouteElement component={Profile} loggedIn={loggedIn} loggedOut={handleOut} />}
+            />
+
+            <Route path="/signin" element={<Login handleLogin={handleLogin} />} />
+            <Route path="/signup" element={<Register handleLogin={handleLogin} />} />
+            <Route path="*" element={<NotFoundPage />} />
+          </Routes>
+          <NavTabWindow isOpen={isNavTabWindowOpen} onClose={closeNavTabWindow} />
+        </NavTabContext.Provider>
+      </CurrentUserContext.Provider>
     </div>
   );
 };

@@ -1,307 +1,101 @@
 import React, { useState, useEffect } from 'react';
+import Header from '../Header/Header';
+import Footer from '../Footer/Footer';
 import SearchForm from '../SearchForm/SearchForm';
 import MoviesCardList from '../MoviesCardList/MoviesCardList';
 import Preloader from '../Preloader/Preloader';
-import { api } from '../../utils/MoviesApi';
+import { movieapi } from '../../utils/MoviesApi';
+import { api } from '../../utils/MainApi';
 
-const Movies = () => {
+const Movies = ({ loggedIn }) => {
+
+  const storedKeyword = localStorage.getItem('searchKeywordMovies');
   const [isLoading, setIsLoading] = useState(false);
   const [movies, setMovies] = useState([]);
+  const [error, setError] = useState('');
+  const [keyword, setKeyword] = useState(storedKeyword !== null ? storedKeyword : '');
+  const [likedMovies, setLikedMovies] = useState([]);
+  const [shortFilmChecked, setShortFilmChecked] = useState(
+    localStorage.getItem('checkboxStateMovies') === 'true' ? true : false
+  );
 
   useEffect(() => {
-    setIsLoading(true);
-    setTimeout(() => {
-      const mockMovies = [
-        {
-          nameRU: "Начало",
-          director: "Кристофер Нолан",
-          year: 2010,
-          genre: "Научная фантастика",
-          rating: 8.8,
-          duration: 148,
-          image: "https://avatars.mds.yandex.net/i?id=6f44bd6a2558e3e566a3b54cdda33d0866813a4f-10465630-images-thumbs&n=13"
-        },
-        {
-          nameRU: "Побег из Шоушенка",
-          director: "Фрэнк Дарабонт",
-          year: 1994,
-          genre: "Драма",
-          rating: 9.3,
-          duration: 142,
-          image: "https://www.film.ru/sites/default/files/movies/posters/1613230-1436375.jpg"
-        },
-        {
-          nameRU: "Темный рыцарь",
-          director: "Кристофер Нолан",
-          year: 2008,
-          genre: "Боевик",
-          rating: 9.0,
-          duration: 152,
-          image: "https://avatars.mds.yandex.net/i?id=d5ec6fdc9dedec2d5b28fd6cb45e405b5e2f2de5-7745047-images-thumbs&n=13"
-        },
-        {
-          nameRU: "Межзвездный",
-          director: "Кристофер Нолан",
-          year: 2014,
-          genre: "Научная фантастика",
-          rating: 8.6,
-          duration: 169,
-          image: "https://avatars.mds.yandex.net/i?id=4e2153ed8f7be4babcd4806aec8db089825c0570-10384273-images-thumbs&n=13"
-        },
-        {
-          nameRU: "Криминальное чтиво",
-          director: "Квентин Тарантино",
-          year: 1994,
-          genre: "Криминал",
-          rating: 8.9,
-          duration: 154,
-          image: "https://i.pinimg.com/originals/96/d7/98/96d79804f99e9dae0f97df33cd9a77af.jpg"
-        },
-        {
-          nameRU: "Начало",
-          director: "Кристофер Нолан",
-          year: 2010,
-          genre: "Научная фантастика",
-          rating: 8.8,
-          duration: 148,
-          image: "https://avatars.mds.yandex.net/i?id=6f44bd6a2558e3e566a3b54cdda33d0866813a4f-10465630-images-thumbs&n=13"
-        },
-        {
-          nameRU: "Побег из Шоушенка",
-          director: "Фрэнк Дарабонт",
-          year: 1994,
-          genre: "Драма",
-          rating: 9.3,
-          duration: 142,
-          image: "https://www.film.ru/sites/default/files/movies/posters/1613230-1436375.jpg"
-        },
-        {
-          nameRU: "Темный рыцарь",
-          director: "Кристофер Нолан",
-          year: 2008,
-          genre: "Боевик",
-          rating: 9.0,
-          duration: 152,
-          image: "https://avatars.mds.yandex.net/i?id=d5ec6fdc9dedec2d5b28fd6cb45e405b5e2f2de5-7745047-images-thumbs&n=13"
-        },
-        {
-          nameRU: "Межзвездный",
-          director: "Кристофер Нолан",
-          year: 2014,
-          genre: "Научная фантастика",
-          rating: 8.6,
-          duration: 169,
-          image: "https://avatars.mds.yandex.net/i?id=4e2153ed8f7be4babcd4806aec8db089825c0570-10384273-images-thumbs&n=13"
-        },
-        {
-          nameRU: "Криминальное чтиво",
-          director: "Квентин Тарантино",
-          year: 1994,
-          genre: "Криминал",
-          rating: 8.9,
-          duration: 154,
-          image: "https://i.pinimg.com/originals/96/d7/98/96d79804f99e9dae0f97df33cd9a77af.jpg"
-        },
-        {
-          nameRU: "Начало",
-          director: "Кристофер Нолан",
-          year: 2010,
-          genre: "Научная фантастика",
-          rating: 8.8,
-          duration: 148,
-          image: "https://avatars.mds.yandex.net/i?id=6f44bd6a2558e3e566a3b54cdda33d0866813a4f-10465630-images-thumbs&n=13"
-        },
-        {
-          nameRU: "Побег из Шоушенка",
-          director: "Фрэнк Дарабонт",
-          year: 1994,
-          genre: "Драма",
-          rating: 9.3,
-          duration: 142,
-          image: "https://www.film.ru/sites/default/files/movies/posters/1613230-1436375.jpg"
-        },
-        {
-          nameRU: "Темный рыцарь",
-          director: "Кристофер Нолан",
-          year: 2008,
-          genre: "Боевик",
-          rating: 9.0,
-          duration: 152,
-          image: "https://avatars.mds.yandex.net/i?id=d5ec6fdc9dedec2d5b28fd6cb45e405b5e2f2de5-7745047-images-thumbs&n=13"
-        },
-        {
-          nameRU: "Межзвездный",
-          director: "Кристофер Нолан",
-          year: 2014,
-          genre: "Научная фантастика",
-          rating: 8.6,
-          duration: 169,
-          image: "https://avatars.mds.yandex.net/i?id=4e2153ed8f7be4babcd4806aec8db089825c0570-10384273-images-thumbs&n=13"
-        },
-        {
-          nameRU: "Криминальное чтиво",
-          director: "Квентин Тарантино",
-          year: 1994,
-          genre: "Криминал",
-          rating: 8.9,
-          duration: 154,
-          image: "https://i.pinimg.com/originals/96/d7/98/96d79804f99e9dae0f97df33cd9a77af.jpg"
-        },
-        {
-          nameRU: "Побег из Шоушенка",
-          director: "Фрэнк Дарабонт",
-          year: 1994,
-          genre: "Драма",
-          rating: 9.3,
-          duration: 142,
-          image: "https://www.film.ru/sites/default/files/movies/posters/1613230-1436375.jpg"
-        },
-        {
-          nameRU: "Темный рыцарь",
-          director: "Кристофер Нолан",
-          year: 2008,
-          genre: "Боевик",
-          rating: 9.0,
-          duration: 152,
-          image: "https://avatars.mds.yandex.net/i?id=d5ec6fdc9dedec2d5b28fd6cb45e405b5e2f2de5-7745047-images-thumbs&n=13"
-        },
-        {
-          nameRU: "Межзвездный",
-          director: "Кристофер Нолан",
-          year: 2014,
-          genre: "Научная фантастика",
-          rating: 8.6,
-          duration: 169,
-          image: "https://avatars.mds.yandex.net/i?id=4e2153ed8f7be4babcd4806aec8db089825c0570-10384273-images-thumbs&n=13"
-        },
-        {
-          nameRU: "Криминальное чтиво",
-          director: "Квентин Тарантино",
-          year: 1994,
-          genre: "Криминал",
-          rating: 8.9,
-          duration: 154,
-          image: "https://i.pinimg.com/originals/96/d7/98/96d79804f99e9dae0f97df33cd9a77af.jpg"
-        },
-        {
-          nameRU: "Начало",
-          director: "Кристофер Нолан",
-          year: 2010,
-          genre: "Научная фантастика",
-          rating: 8.8,
-          duration: 148,
-          image: "https://avatars.mds.yandex.net/i?id=6f44bd6a2558e3e566a3b54cdda33d0866813a4f-10465630-images-thumbs&n=13"
-        },
-        {
-          nameRU: "Побег из Шоушенка",
-          director: "Фрэнк Дарабонт",
-          year: 1994,
-          genre: "Драма",
-          rating: 9.3,
-          duration: 142,
-          image: "https://www.film.ru/sites/default/files/movies/posters/1613230-1436375.jpg"
-        },
-        {
-          nameRU: "Темный рыцарь",
-          director: "Кристофер Нолан",
-          year: 2008,
-          genre: "Боевик",
-          rating: 9.0,
-          duration: 152,
-          image: "https://avatars.mds.yandex.net/i?id=d5ec6fdc9dedec2d5b28fd6cb45e405b5e2f2de5-7745047-images-thumbs&n=13"
-        },
-        {
-          nameRU: "Межзвездный",
-          director: "Кристофер Нолан",
-          year: 2014,
-          genre: "Научная фантастика",
-          rating: 8.6,
-          duration: 169,
-          image: "https://avatars.mds.yandex.net/i?id=4e2153ed8f7be4babcd4806aec8db089825c0570-10384273-images-thumbs&n=13"
-        },
-        {
-          nameRU: "Криминальное чтиво",
-          director: "Квентин Тарантино",
-          year: 1994,
-          genre: "Криминал",
-          rating: 8.9,
-          duration: 154,
-          image: "https://i.pinimg.com/originals/96/d7/98/96d79804f99e9dae0f97df33cd9a77af.jpg"
-        },
-        {
-          nameRU: "Начало",
-          director: "Кристофер Нолан",
-          year: 2010,
-          genre: "Научная фантастика",
-          rating: 8.8,
-          duration: 148,
-          image: "https://avatars.mds.yandex.net/i?id=6f44bd6a2558e3e566a3b54cdda33d0866813a4f-10465630-images-thumbs&n=13"
-        },
-        {
-          nameRU: "Побег из Шоушенка",
-          director: "Фрэнк Дарабонт",
-          year: 1994,
-          genre: "Драма",
-          rating: 9.3,
-          duration: 142,
-          image: "https://www.film.ru/sites/default/files/movies/posters/1613230-1436375.jpg"
-        },
-        {
-          nameRU: "Темный рыцарь",
-          director: "Кристофер Нолан",
-          year: 2008,
-          genre: "Боевик",
-          rating: 9.0,
-          duration: 152,
-          image: "https://avatars.mds.yandex.net/i?id=d5ec6fdc9dedec2d5b28fd6cb45e405b5e2f2de5-7745047-images-thumbs&n=13"
-        },
-        {
-          nameRU: "Межзвездный",
-          director: "Кристофер Нолан",
-          year: 2014,
-          genre: "Научная фантастика",
-          rating: 8.6,
-          duration: 169,
-          image: "https://avatars.mds.yandex.net/i?id=4e2153ed8f7be4babcd4806aec8db089825c0570-10384273-images-thumbs&n=13"
-        },
-        {
-          nameRU: "Криминальное чтиво",
-          director: "Квентин Тарантино",
-          year: 1994,
-          genre: "Криминал",
-          rating: 8.9,
-          duration: 154,
-          image: "https://i.pinimg.com/originals/96/d7/98/96d79804f99e9dae0f97df33cd9a77af.jpg"
-        }
-      ];
+    const storedMovies = JSON.parse(localStorage.getItem('moviesSearchResults')) || [];
+    setMovies(storedMovies);
+  }, [shortFilmChecked]);
 
-      api
-      .getInitialFilms()
-      .then(movies => {
-          console.log(movies);
-          setMovies(mockMovies);
-          setIsLoading(false);
-      })
-      .catch(error => {
-          console.error('Ошибка при загрузке данных:', error);
-          setIsLoading(false);
-      });
-}, 1000);
+  useEffect(() => {
+    localStorage.setItem('checkboxStateMovies', shortFilmChecked);
+  }, [shortFilmChecked]);
+
+  useEffect(() => {
+    const fetchLikedMovies = async () => {
+      try {
+        const likedMoviesData = await api.getMovies();
+        setLikedMovies(likedMoviesData);
+      } catch (error) {
+        console.error('Ошибка получения данных:', error.message);
+      }
+    };
+
+    fetchLikedMovies();
   }, []);
 
+  useEffect(() => {
+    if (!isLoading) return;
+    if (!keyword.trim()) {
+      setError('Нужно ввести ключевое слово');
+      setIsLoading(false);
+      return;
+    }
+    movieapi
+      .getInitialFilms()
+      .then(movies => {
+        const filteredMovies = movies.filter(movie =>
+        (movie.nameRU.toLowerCase().includes(keyword.toLowerCase()) ||
+          movie.nameEN.toLowerCase().includes(keyword.toLowerCase()))
+        );
+        setMovies(filteredMovies);
+        setIsLoading(false);
+        setError('');
+        localStorage.setItem('moviesSearchResults', JSON.stringify(filteredMovies));
+        localStorage.setItem('searchKeywordMovies', keyword);
+      })
+      .catch(error => {
+        console.error('Ошибка при загрузке данных:', error);
+        setIsLoading(false);
+        setError('Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз');
+      });
+  }, [isLoading, keyword, shortFilmChecked]);
+
   const handleSearch = (keyword) => {
-    console.log('Поиск фильмов по запросу', keyword);
+    setIsLoading(true);
+    setKeyword(keyword);
   };
 
-  return (
+  const handleCheckboxChange = () => {
+    setShortFilmChecked(prevState => !prevState);
+  };
+
+  return (<>
+    <Header loggedIn={loggedIn} />
     <main className="movies">
-      <SearchForm onSearch={handleSearch} />
+      <SearchForm onSearch={handleSearch} onChecked={shortFilmChecked} handleCheckboxChange={handleCheckboxChange} searchKeyword={storedKeyword} />
       {isLoading ? (
         <Preloader />
       ) : (
-        <MoviesCardList movies={movies} />
+        <>
+          {error && <p className="movies__error">{error}</p>}
+          {movies.length === 0 ? (
+            <p className="movies__error">Ничего не найдено</p>
+          ) : (
+            <MoviesCardList movies={movies} shortFilmChecked={shortFilmChecked} likedMovies={likedMovies} />
+          )}
+        </>
       )}
     </main>
+    <Footer />
+  </>
   );
 };
 
