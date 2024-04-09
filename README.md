@@ -6,3 +6,5 @@
 
 Ссылку на пул реквест, открытый из ветки level-3:
 https://github.com/Alexandr-Zuev/movies-explorer-frontend/pull/2
+
+Ссылка на проект: https://zuev.nomoredomainswork.ru/ 
