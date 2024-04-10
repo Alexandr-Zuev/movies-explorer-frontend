@@ -22,6 +22,20 @@ const Login = ({ handleLogin }) => {
     setIsFormValid(formEmailValid && formPasswordValid);
   }, [formEmailValid, formPasswordValid]);
 
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    if (token) {
+      auth.checkToken(token)
+        .then(() => {
+          handleLogin();
+          navigate('/movies');
+        })
+        .catch(error => {
+          console.error('Ошибка при верификации токена:', error);
+        });
+    }
+  }, [handleLogin, navigate]);
+
   const handleChange = e => {
     const { name, value } = e.target;
     setFormData({
