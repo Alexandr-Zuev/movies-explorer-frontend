@@ -7,7 +7,7 @@ export const signUp = (name, email, password) => {
     headers: {
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify({name, email, password })
+    body: JSON.stringify({ name, email, password })
   })
     .then(response => {
       return response.json();
@@ -32,7 +32,8 @@ export const signIn = (email, password) => {
     })
     .then(data => {
       if (data) {
-        localStorage.setItem('token', data.token);
+        console.log(data)
+        localStorage.setItem('jwt', data.token);
         return data;
       }
     })
@@ -46,16 +47,4 @@ export const signOut = () => {
   })
     .then(response => response.json())
     .catch(err => console.log(err));
-};
-
-export const checkToken = token => {
-  return fetch(`${BASE_URL}/users/me`, {
-    method: 'GET',
-    credentials: "include",
-    headers: {
-      'Content-Type': 'application/json',
-    }
-  })
-    .then(res => res.json())
-    .then(data => data);
 };

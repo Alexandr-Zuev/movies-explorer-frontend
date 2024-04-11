@@ -22,20 +22,6 @@ const Login = ({ handleLogin }) => {
     setIsFormValid(formEmailValid && formPasswordValid);
   }, [formEmailValid, formPasswordValid]);
 
-  useEffect(() => {
-    const token = localStorage.getItem('token');
-    if (token) {
-      auth.checkToken(token)
-        .then(() => {
-          handleLogin();
-          navigate('/movies');
-        })
-        .catch(error => {
-          console.error('Ошибка при верификации токена:', error);
-        });
-    }
-  }, [handleLogin, navigate]);
-
   const handleChange = e => {
     const { name, value } = e.target;
     setFormData({
@@ -77,10 +63,11 @@ const Login = ({ handleLogin }) => {
 
   const handleSubmit = e => {
     e.preventDefault();
-  
+
     auth.signIn(formData.email, formData.password)
       .then(res => {
         if (res.token) {
+          localStorage.setItem('jwt', res.token);
           setFormData({
             email: '',
             password: ''
@@ -131,9 +118,9 @@ const Login = ({ handleLogin }) => {
           <span className="login__error-message">{formErrors.password}</span>
         </div>
         <div className='login__submit-conteiner'>
-        {loginError && <span className="login__error-message">{loginError}</span>}
-        <button type="submit" className={`register__button ${isFormValid ? '' : 'register__button--disabled'}`} disabled={!isFormValid}>Войти</button>
-        <p className="login__span">Ещё не зарегистрированы?&nbsp;<Link to="/signup" className="login__link ">Регистрация</Link></p>
+          {loginError && <span className="login__error-message">{loginError}</span>}
+          <button type="submit" className={`register__button ${isFormValid ? '' : 'register__button--disabled'}`} disabled={!isFormValid}>Войти</button>
+          <p className="login__span">Ещё не зарегистрированы?&nbsp;<Link to="/signup" className="login__link ">Регистрация</Link></p>
         </div>
       </form>
     </div>

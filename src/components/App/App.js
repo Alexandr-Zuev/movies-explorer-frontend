@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Header from '../Header/Header';
 import Main from '../Main/Main';
@@ -37,15 +37,19 @@ const App = () => {
   };
 
   useEffect(() => {
-    if (loggedIn) {
-      api
-        .getUserInfo()
-        .then(userInfo => {
-          setCurrentUser (userInfo);
-        })
-        .catch(error => {
-          console.error('Ошибка при получении информации о пользователе:', error);
-        });
+    const token = localStorage.getItem('jwt');
+    if (token) {
+      setLoggedIn(true);
+      if (loggedIn) {
+        api
+          .getUserInfo()
+          .then(userInfo => {
+            setCurrentUser(userInfo);
+          })
+          .catch(error => {
+            console.error('Ошибка при получении информации о пользователе:', error);
+          });
+      }
     }
   }, [loggedIn]);
 
