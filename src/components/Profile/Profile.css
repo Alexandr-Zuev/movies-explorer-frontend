@@ -55,6 +55,15 @@
     color: #EE3465;
 }
 
+.profile__success-message {
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 12px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #2bec2b;
+}
+
 .profile__input-container:first-of-type {
     border-bottom: 1px solid #424242;
 }
@@ -139,10 +148,6 @@
     .profile__title {
         margin-bottom: 80px;
     }
-
-    .profile__submit-button {
-        margin-top: 192px;
-    }
 }
 
 @media (max-width: 710px) {
@@ -154,11 +159,6 @@
     .profile__title {
         margin-bottom: 64px;
     }
-
-    .profile__submit-button {
-        margin-top: 362px;
-    }
-
     .profile__submit-button {
         font-size: 12px;
         line-height: 15px;

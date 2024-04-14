@@ -16,6 +16,7 @@ const SavedMovies = ({ loggedIn }) => {
 
   const handleDeleteFromFavorites = (deletedMovieId) => {
     setMovies(movies => movies.filter(movie => movie.movieId !== deletedMovieId));
+    setLikedMovies(likedMovies => likedMovies.filter(movie => movie.movieId !== deletedMovieId));
   };
 
   useEffect(() => {
@@ -57,7 +58,7 @@ const SavedMovies = ({ loggedIn }) => {
     if (keyword.trim() !== '') {
       fetchFilteredMovies();
     }
-  }, [keyword, shortFilmChecked, likedMovies]);
+  }, [keyword, shortFilmChecked, likedMovies, movies]);
 
   const handleSearch = (keyword) => {
     setKeyword(keyword);

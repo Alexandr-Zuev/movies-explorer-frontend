@@ -45,17 +45,23 @@ const MoviesCardList = ({ movies, shortFilmChecked, likedMovies, onDeleteFromFav
 
   return (
     <section className="movies-card-list">
-      {filteredMovies.slice(0, visibleMovies).map(movie => (
-        <MovieCard key={movie.id} movie={movie} likedMovies={likedMovies} onDeleteFromFavorites={onDeleteFromFavorites} />
-      ))}
-      {showLoadMore && filteredMovies.length > visibleMovies && (
-        <button
-          type="button"
-          onClick={handleLoadMore}
-          className="movies-card-list__button-more"
-        >
-          Ещё
-        </button>
+      {filteredMovies.length === 0 ? (
+        <p className="movies__error">Ничего не найдено</p>
+      ) : (
+        <>
+          {filteredMovies.slice(0, visibleMovies).map(movie => (
+            <MovieCard key={movie.id} movie={movie} likedMovies={likedMovies} onDeleteFromFavorites={onDeleteFromFavorites} />
+          ))}
+          {showLoadMore && filteredMovies.length > visibleMovies && (
+            <button
+              type="button"
+              onClick={handleLoadMore}
+              className="movies-card-list__button-more"
+            >
+              Ещё
+            </button>
+          )}
+        </>
       )}
     </section>
   );

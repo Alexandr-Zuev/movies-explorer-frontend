@@ -8,6 +8,7 @@ const Profile = ({ loggedIn, loggedOut }) => {
     const currentUser = useContext(CurrentUserContext);
     const [profileTitle, setprofileTitle] = useState(currentUser.name);
     const [profileError, setProfileError] = useState('');
+    const [profileSuccess, setProfileSuccess] = useState(false);
     const [formData, setFormData] = useState({
         name: currentUser.name,
         email: currentUser.email
@@ -22,8 +23,13 @@ const Profile = ({ loggedIn, loggedOut }) => {
     });
 
     useEffect(() => {
-        setIsFormValid(formNameValid && formEmailValid);
-    }, [formNameValid, formEmailValid]);
+        const isFormDataChanged = formData.name !== currentUser.name || formData.email !== currentUser.email;
+        setIsFormValid(isFormDataChanged && formNameValid && formEmailValid);
+    }, [formData, currentUser, formNameValid, formEmailValid]);
+
+    useEffect(() => {
+        setProfileSuccess(false);
+    }, [formData]);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -31,6 +37,7 @@ const Profile = ({ loggedIn, loggedOut }) => {
             const res = await api.editProfile(formData);
             setprofileTitle(res.name);
             setProfileError('');
+            setProfileSuccess(true);
         } catch (error) {
             setProfileError(error.message || 'Ошибка сервера. Пожалуйста, попробуйте еще раз.');
             console.error('Ошибка входа:', error);
@@ -76,13 +83,21 @@ const Profile = ({ loggedIn, loggedOut }) => {
         }
     };
 
-    const handleLogout = () => {
+    const clearAllCookies = () => {
+        document.cookie.split(";").forEach(cookie => {
+          document.cookie = cookie
+            .replace(/^ +/, "")
+            .replace(/=.*/, `=;expires=${new Date().toUTCString()};path=/`);
+        });
+      };
+
+      const handleLogout = () => {
         auth.signOut();
         localStorage.clear();
+        clearAllCookies();
         loggedOut();
         console.log('Пользователь вышел');
-    };
-
+      };
 
     return (
         <>
@@ -122,6 +137,7 @@ const Profile = ({ loggedIn, loggedOut }) => {
                     <span className="profile__error-message">{formErrors.email}</span>
                     <div className='profile__submit-conteiner'>
                         {profileError && <span className="login__error-message">{profileError}</span>}
+                        {profileSuccess && <span className="profile__success-message">Профиль успешно сохранен!</span>}
                         <button type="submit" className={`profile__submit-button ${isFormValid ? '' : 'profile__submit-button--disabled'}`} disabled={!isFormValid}>Редактировать</button>
                     </div>
                 </form>
