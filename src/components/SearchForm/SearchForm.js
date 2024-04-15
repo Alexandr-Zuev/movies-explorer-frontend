@@ -2,15 +2,21 @@ import React, { useState } from 'react';
 import searchImg from '../../images/search-icon.svg';
 import FilterCheckbox from '../FilterCheckbox/FilterCheckbox';
 
-const SearchForm = () => {
-    const [inputValue, setInputValue] = useState('');
+const SearchForm = ({ onSearch, onChecked, handleCheckboxChange, searchKeyword}) => {
+
+    const [inputValue, setInputValue] = useState(searchKeyword !== null ? searchKeyword : '');
 
     const handleInputChange = (event) => {
         setInputValue(event.target.value);
     };
 
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        onSearch(inputValue);
+    };
+
     return (
-        <form className="search-form">
+        <form className="search-form" onSubmit={handleSubmit}>
             <div className="search-form__input-area">
                 {inputValue === '' ? (
                     <>
@@ -26,7 +32,7 @@ const SearchForm = () => {
                 value={inputValue}
                 onChange={handleInputChange}
                 minLength="2"
-                maxlength="30"
+                maxLength="30"
                 placeholder=''
             />
             <div className="search-form__input-info">
@@ -34,7 +40,7 @@ const SearchForm = () => {
                     <button className="search-form__button" type="submit">Найти</button>
                 </div>
                 <div className="search-form__checkbox-group">
-                    <FilterCheckbox />
+                    <FilterCheckbox  isChecked={onChecked} onChange={handleCheckboxChange}/>
                     <p className="search-form__checkbox-text">Короткометражки</p>
                 </div>
             </div>

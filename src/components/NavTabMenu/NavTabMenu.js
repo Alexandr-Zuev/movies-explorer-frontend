@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { NavTabContext } from '../App/App';
+import NavTabContext  from '../../contexts/NavTabContext';
 
 
 const NavTabMenu = () => {
